@@ -1,0 +1,93 @@
+<!-- Sidebar -->
+<div [ngClass]="['cartmini__area tp-all-font-roboto', cartService.isCartOpen ? 'cartmini-opened' : '']">
+  <div class="cartmini__wrapper d-flex justify-content-between flex-column">
+
+    <!-- Top -->
+    <div class="cartmini__top-wrapper">
+      <div class="cartmini__top p-relative d-flex justify-content-between align-items-center">
+        <div class="cartmini__top-title">
+          <h4>Shopping Cart</h4>
+        </div>
+        <div class="cartmini__close">
+          <button (click)="cartService.handleOpenCartSidebar()" type="button" class="cartmini__close-btn">
+            <i class="fal fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cart Items -->
+      <div *ngIf="cartService.getCartProducts().length > 0" class="cartmini__widget">
+        <div *ngFor="let item of cartService.getCartProducts()" class="cartmini__widget-item">
+
+          <!-- Thumbnail -->
+          <div class="cartmini__thumb">
+            <a [routerLink]="['/shop/shop-details', item.id]">
+              <img [src]="item.img" alt="cart-img" />
+            </a>
+          </div>
+
+          <!-- Content -->
+          <div class="cartmini__content">
+            <h5 class="cartmini__title">
+              <a [routerLink]="['/shop/shop-details', item.id]">{{ item.title }}</a>
+            </h5>
+
+            <!-- Price -->
+            <div class="cartmini__price-wrapper">
+              <span *ngIf="item.discount > 0" class="cartmini__price">
+                ₹{{ ((item.price - (item.price * item.discount) / 100) * item.orderQuantity) | number:'1.2-2' }}
+              </span>
+
+            </div>
+
+            <!-- Quantity Controls -->
+            <div class="tp-product-quantity">
+              <button type="button" class="tp-cart-minus" (click)="cartService.quantityDecrement(item)">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="tp-cart-quantity">x{{ item.orderQuantity }}</span>
+              <button type="button" class="tp-cart-plus" (click)="cartService.addCartProduct(item)">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remove -->
+          <a (click)="cartService.removeCartProduct(item)" class="cartmini__del">
+            <i class="fa-regular fa-xmark"></i>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Empty Cart -->
+      <div *ngIf="cartService.getCartProducts().length === 0" class="cartmini__empty">
+        <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
+        <p>Your cart is empty</p>
+        <a routerLink="/shop" class="tp-btn">Go to Shop</a>
+      </div>
+    </div>
+
+    <!-- Checkout -->
+    <div *ngIf="cartService.getCartProducts().length > 0" class="cartmini__checkout">
+      <div class="cartmini__checkout-title">
+        <h4>Subtotal:</h4>
+        <span>₹{{ cartService.totalPriceQuantity().total.toFixed(2) }}</span>
+      </div>
+      <div class="cartmini__checkout-btn">
+        <a routerLink="/pages/cart" (click)="cartService.handleOpenCartSidebar()" class="tp-btn mb-10 w-100">
+          View Cart
+        </a>
+        <a routerLink="/pages/checkout" (click)="cartService.handleOpenCartSidebar()"
+          class="tp-btn tp-btn-border w-100">
+          Checkout
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Overlay -->
+<div (click)="cartService.handleOpenCartSidebar()" [ngClass]="['body-overlay', cartService.isCartOpen ? 'opened' : '']">
+</div>

@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "framework": "angular",
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist/bit-buy-shop",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "builds": [
+    { "src": "angular.json", "use": "@vercel/angular" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "dist/jibran-ecom-website/$1" }
   ]
 }

@@ -1,24 +1,24 @@
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Component, HostListener, Input, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-
-import { SharedModule } from '../../../shared.module';
-import { CartService } from '../../services/cart.service';
-import { WishlistService } from '../../services/wishlist.service';
-import { UtilsService } from '../../services/utils.service';
-import { MenuBarComponent } from "../header-com/menu-bar/menu-bar.component";
-import { CartSidebarComponent } from "../../components/offcanvas/cart-sidebar/cart-sidebar.component";
-import { MobileSidebarComponent } from "../../components/offcanvas/mobile-sidebar/mobile-sidebar.component";
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 import { Company } from '../../../../assets/data/companydata/company.model';
 import { CompanyService } from '../../../../assets/data/companydata/company.service';
 import { ToastrService } from 'ngx-toastr';
+import { MenuBarComponent } from '../../menu-bar/menu-bar.component';
+import { CartSidebarComponent } from '../../cart-sidebar/cart-sidebar.component';
+import { MobileSidebarComponent } from '../../mobile-sidebar/mobile-sidebar.component';
+import { FormsModule } from '@angular/forms';
+import { CartService } from '../../cart.service';
+import { WishlistService } from '../../wishlist.service';
+import { UtilsService } from '../../utils.service';
 
 @Component({
   selector: 'app-fashion-header',
   templateUrl: './fashionheadercomponent.html',
   styleUrls: ['./fashionheadercomponent.scss'],
-  imports: [SharedModule, MenuBarComponent, CartSidebarComponent, MobileSidebarComponent]
+  imports: [MenuBarComponent, RouterModule, CartSidebarComponent, MobileSidebarComponent, CommonModule, FormsModule],
+  standalone: true
 })
 export class FashionHeaderComponent {
   @Input() style_2: boolean = false;
@@ -89,7 +89,7 @@ export class FashionHeaderComponent {
     this.router.navigate(['/pages/login']); // Redirect to login page
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll',)
   onscroll() {
     if (this.isBrowser) {
       this.sticky = window.scrollY > 80;

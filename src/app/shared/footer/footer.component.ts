@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SharedModule } from '../../shared.module';
-import { SocialLinksComponent } from "../social-links/social-links.component";
 import { Company } from '../../../assets/data/companydata/company.model';
 import { CompanyService } from '../../../assets/data/companydata/company.service';
+import { RouterLink } from "@angular/router";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  imports: [SharedModule, SocialLinksComponent],
+  imports: [RouterLink, CommonModule],
   standalone: true
 })
 export class FooterComponent implements OnInit {
