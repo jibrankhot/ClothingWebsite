@@ -1,0 +1,5 @@
+<app-desktop-header *ngIf="!isMobile" [company]="company" [searchText]="searchText"
+    (searchSubmit)="handleSearchSubmit()" (logoutEvent)="logout()"></app-desktop-header>
+
+<app-mobile-header *ngIf="isMobile" [company]="company" [searchText]="searchText" (searchSubmit)="handleSearchSubmit()"
+    (logoutEvent)="logout()"></app-mobile-header>

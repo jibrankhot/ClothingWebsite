@@ -9,6 +9,6 @@ export const routes: Routes = [
     {
         path: 'home',
         loadChildren: () =>
-            import('./home/home.route').then((m) => m.homeRoutes)
+            import('./components/home/home.route').then((m) => m.homeRoutes)
     }
 ];

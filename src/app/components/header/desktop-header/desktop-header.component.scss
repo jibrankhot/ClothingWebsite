@@ -1,0 +1,169 @@
+/* ========================
+   DESKTOP HEADER
+======================== */
+.desktop-header .header-full-width {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 80px;
+  padding: 0 20px;
+  border-bottom: 1px solid #eaeaec;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* Logo */
+.desktop-header .logo-container {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.desktop-header .logo img {
+  max-height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Menu */
+.desktop-header .main-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-right: 12px;
+}
+
+.desktop-header .tp-main-menu-content {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #282c3f;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.desktop-header .tp-main-menu-content a {
+  padding: 28px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.desktop-header .tp-main-menu-content a:hover {
+  border-bottom: 2px solid #ff3f6c;
+  color: #ff3f6c;
+}
+
+/* Search */
+.desktop-header .search-container {
+  flex: 0 0 360px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.desktop-header .search-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #f5f5f6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.desktop-header .search-icon {
+  background: #f5f5f6;
+  border: none;
+  cursor: pointer;
+  color: #696e79;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-header .tp-header-search-2 input {
+  flex: 1;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding-left: 8px;
+  background: transparent;
+}
+
+/* Right Actions */
+.desktop-header .tp-header-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 12px;
+}
+
+.desktop-header .tp-header-action-item a,
+.desktop-header .tp-header-action-item button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #282c3f;
+  position: relative;
+}
+
+/* Badge */
+.desktop-header .tp-header-action-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #ff3f6c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 14px;
+  padding: 0 4px;
+}
+
+/* Profile dropdown */
+.desktop-header .profile-container {
+  position: relative;
+}
+
+.desktop-header .profile-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #eaeaec;
+  border-radius: 4px;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.desktop-header .profile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #282c3f;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.desktop-header .profile-dropdown a + a {
+  border-top: 1px solid #eaeaec;
+}
+
+.desktop-header .profile-dropdown a.logout {
+  color: #ff3f6c;
+}

@@ -1,12 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { FashionHeaderComponent } from '../shared/header/fashionHeaderComponent/fashionheadercomponent';
-import { FooterComponent } from '../shared/footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [FashionHeaderComponent, FooterComponent],
+  imports: [HeaderComponent],
   standalone: true
 })
 export class HomeComponent {
